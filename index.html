@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>See It On Screen - See it off Productions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root {
+            --bg: #0c0d10;
+            --text: #fff;
+            --muted: rgba(255, 255, 255, 0.65);
+            --max: 1180px;
+            --accent: #e4c16f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #000;
+            color: var(--text);
+        }
+
+        /* top bar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .logo {
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            /* larger logo text */
+            font-weight: 600;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1rem;
+            /* larger and more readable */
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* hero */
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 1) 100%),
+                url("images/hero-bg.png") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin-top: 3rem;
+        }
+
+        .hero-kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 1.3rem;
+            /* increased size */
+            font-weight: 600;
+            /* optional: makes it stand out */
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.2rem;
+        }
+
+
+        h1.hero-title {
+            font-size: clamp(3rem, 5vw, 4.3rem);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            line-height: 1.05;
+        }
+
+        .hero-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 550px;
+            margin: 0 auto 2.2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 1);
+            color: #000;
+            border: none;
+            padding: 0.65rem 1.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.7rem;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .btn.secondary {
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 1.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* call to action section */
+        .cta {
+            background: #fff;
+            color: #000;
+            text-align: center;
+            padding: 6rem 1.5rem 7rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .cta-text {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .cta .btn {
+            font-size: 0.85rem;
+            padding: 0.8rem 2rem;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .cta .btn:hover {
+            background: #333;
+        }
+
+        /* section wrapper */
+        .section {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 4rem 1.5rem 4.5rem;
+            background: #000;
+        }
+
+        .section-head {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+        }
+
+        /* shows grid */
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .show-card {
+            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;
+        }
+
+        .show-thumb {
+            background: #222;
+            height: 140px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .show-body {
+            padding: 1.1rem 1rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .show-meta {
+            text-transform: uppercase;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .show-title {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .show-foot {
+            margin-top: auto;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* about 2-col */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2.5rem;
+        }
+
+        .panel {
+            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 1rem;
+            padding: 1.5rem 1.4rem 1.4rem;
+        }
+
+        .credits-list {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .credit-item small {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 0.25rem;
+        }
+
+        footer {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        @media (max-width: 800px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            h1.hero-title {
+                font-size: 2.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">SEE IT ON SCREEN</div>
+        <nav>
+            <a href="#productions">Productions</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- prominent hero -->
+    <section class="hero">
+        <div class="hero-content hero-overlay">
+            <div class="hero-kicker">Films By Anyone, For Everyone</div>
+            <h1 class="hero-title">Turn your dreams into reels</h1>
+            <p class="hero-text">
+                Replace this with your positioning: drama, premium series, features and international co-productions
+                with leading broadcasters and streamers.
+            </p>
+        </div>
+    </section>
+
+            <div class="hero-buttons">
+                <button class="btn"
+                    onclick="document.getElementById('productions').scrollIntoView({behavior:'smooth'});">
+                    View productions
+                </button>
+                <button class="btn secondary"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+                    Contact
+                </button>
+            </div>
+        </div>
+        <div class="scroll-hint">Scroll to explore</div>
+    </section>
+
+    <!-- call to action -->
+    <section class="cta">
+        <div class="cta-inner">
+            <h2 class="cta-title">Want to work in film?</h2>
+            <p class="cta-text">
+                Whether you’re an aspiring filmmaker or an experienced creative, we’re always looking for new talent to
+                collaborate with on upcoming projects.
+            </p>
+            <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+                Get in touch
+            </button>
+        </div>
+    </section>
+
+    <!-- productions -->
+    <section id="productions" class="section">
+        <div class="section-head">
+            <div class="section-kicker">Selected productions</div>
+            <h2 class="section-title">Recent work</h2>
+        </div>
+        <div class="shows-grid">
+            <article class="show-card">
+                <div class="show-thumb" style="background-image:url('show-1.jpg');"></div>
+                <div class="show-body">
+                    <div class="show-meta">Drama · 6 x 60’</div>
+                    <div class="show-title">The Harbour</div>
+                    <div class="show-foot">ITV · 2025</div>
+                </div>
+            </article>
+            <article class="show-card">
+                <div class="show-thumb" style="background-image:url('show-2.jpg');"></div>
+                <div class="show-body">
+                    <div class="show-meta">Feature film</div>
+                    <div class="show-title">Winterlight</div>
+                    <div class="show-foot">2024</div>
+                </div>
+            </article>
+            <article class="show-card">
+                <div class="show-thumb" style="background-image:url('show-3.jpg');"></div>
+                <div class="show-body">
+                    <div class="show-meta">Documentary · 3 x 45’</div>
+                    <div class="show-title">Women of the Isles</div>
+                    <div class="show-foot">BBC · 2024</div>
+                </div>
+            </article>
+            <article class="show-card">
+                <div class="show-thumb" style="background-image:url('show-4.jpg');"></div>
+                <div class="show-body">
+                    <div class="show-meta">Drama · 8 x 45’</div>
+                    <div class="show-title">Signal Fire</div>
+                    <div class="show-foot">Channel 4 · 2023</div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- about -->
+    <section id="about" class="section">
+        <div class="section-head">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">Creative. International. Producer-led.</h2>
+        </div>
+        <div class="two-col">
+            <div class="panel">
+                <p>
+                    Add your actual bio here — who founded the company, where you're based, and the type of returning or
+                    high-end drama you deliver.
+                    Mention partnerships with broadcasters/streamers and any awards/festival recognition.
+                </p>
+                <p>
+                    You can link to separate labels/divisions from here if you have them.
+                </p>
+            </div>
+            <div class="panel">
+                <h3 style="margin-top:0;">Selected credits</h3>
+                <div class="credits-list">
+                    <div class="credit-item">
+                        The Harbour (ITV)
+                        <small>6 x 60’ drama · 2025</small>
+                    </div>
+                    <div class="credit-item">
+                        Winterlight
+                        <small>Feature · 2024</small>
+                    </div>
+                    <div class="credit-item">
+                        The Archivists (Netflix)
+                        <small>Limited series · 2023</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div>
+            <strong>Your Production Company</strong><br />
+            London / UK<br />
+            <a href="mailto:hello@example.com" style="color:inherit;">hello@example.com</a>
+        </div>
+        <div>
+            © 2025 Your Production Company
+        </div>
+    </footer>
+
+</body>
+
+</html>

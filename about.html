@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - See it On Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.45)),
+                url('https://images.unsplash.com/photo-1574267432644-f410f8ec4eaf?w=2000&q=85');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .intro-section {
+            max-width: 900px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 1.3rem;
+            line-height: 2;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section .highlight {
+            font-size: 1.4rem;
+            font-weight: 400;
+            opacity: 1;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 3rem 0;
+        }
+
+        /* Two Column Section */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 6rem 0;
+            align-items: center;
+        }
+
+        .two-column.reverse {
+            direction: rtl;
+        }
+
+        .two-column.reverse>* {
+            direction: ltr;
+        }
+
+        .column-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .column-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .column-image:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .column-text h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .column-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .value-card {
+            background-color: #111111;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            background-color: #1a1a1a;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: #0d0d0d;
+            padding: 6rem 3rem;
+            margin: 6rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Team Philosophy */
+        .philosophy-section {
+            max-width: 900px;
+            margin: 6rem auto;
+            padding: 4rem;
+            background-color: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .philosophy-section h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .philosophy-section p {
+            font-size: 1.15rem;
+            line-height: 2;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 3rem;
+            background-color: #0d0d0d;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            border: 2px solid #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                height: 50vh;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+
+            .content {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .intro-section .highlight {
+                font-size: 1.2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .two-column.reverse {
+                direction: ltr;
+            }
+
+            .column-image {
+                height: 350px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .philosophy-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="see-it-on-screen-homepage.html" class="logo">See it On Screen</a>
+            <ul class="nav-links">
+                <li><a href="see-it-on-screen-homepage.html#productions">Productions</a></li>
+                <li><a href="see-it-on-screen-homepage.html#get-involved">Get Involved</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="see-it-on-screen-homepage.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Us</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <p>
+                Talent exists everywhere. What's missing are the opportunities to discover and nurture it.
+            </p>
+            <div class="highlight">
+                We create pathways into film production across Scotland. We do this by actually making films.
+            </div>
+            <p>
+                See It On Screen and See It Off Productions are dedicated to democratising access to the film industry.
+                We believe that filmmaking shouldn't be reserved for those with connections or formal training—it should
+                be open to anyone with passion, dedication, and a willingness to learn.
+            </p>
+        </section>
+
+        <!-- Our Approach -->
+        <div class="two-column">
+            <div class="column-text">
+                <h3>Our Approach</h3>
+                <p>
+                    Every film project we undertake blends professionals and amateurs, creating a unique learning
+                    environment where experience meets enthusiasm. This isn't about watching from the sidelines—it's
+                    about getting your hands dirty, learning on set, and contributing to real productions.
+                </p>
+                <p>
+                    We don't ask for portfolios, showreels, or years of experience. All we ask is that you get in
+                    touch, tell us you want to be involved, and turn up on time. Your reliability and commitment are
+                    what matter most.
+                </p>
+            </div>
+            <div class="column-image">
+                <img src="https://images.unsplash.com/photo-1579547945478-a6681fb3c3c9?w=800&q=80"
+                    alt="Film crew collaborating">
+            </div>
+        </div>
+
+        <!-- What We Do -->
+        <div class="two-column reverse">
+            <div class="column-text">
+                <h3>What We Support</h3>
+                <p>
+                    We support both narrative and documentary filmmaking. Whether you want to work in front of the
+                    camera or behind it, whether you're interested in directing, cinematography, sound, editing, or
+                    any other aspect of production—there's a place for you here.
+                </p>
+                <p>
+                    Have an idea for a screenplay? We want to hear it. Have a story that needs to be told? Let's
+                    discuss how to bring it to the screen. We're committed to nurturing new voices and fresh
+                    perspectives in Scottish cinema.
+                </p>
+            </div>
+            <div class="column-image">
+                <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80"
+                    alt="Camera operator filming">
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <section style="margin: 6rem 0;">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎬</div>
+                    <h4>Learning by Doing</h4>
+                    <p>We believe the best way to learn filmmaking is by actually making films. Theory matters, but
+                        practice is essential.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h4>Inclusive Collaboration</h4>
+                    <p>We blend professionals with newcomers, creating environments where everyone learns from each
+                        other.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌟</div>
+                    <h4>Opportunity for All</h4>
+                    <p>No gatekeeping, no barriers to entry. If you're committed and reliable, you're welcome here.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h4>Quality & Craft</h4>
+                    <p>We're creating real films for real audiences, maintaining professional standards in everything we
+                        do.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h4>Creative Freedom</h4>
+                    <p>We support diverse stories and voices, from bold narratives to compelling documentaries.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+                    <h4>Scottish Stories</h4>
+                    <p>Building Scotland's creative future by empowering local talent and telling Scottish stories.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Commitment</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Real</h3>
+                    <p>Productions</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Open</h3>
+                    <p>Opportunities</p>
+                </div>
+                <div class="stat-item">
+                    <h3>All</h3>
+                    <p>Welcome</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <!-- Philosophy -->
+        <section class="philosophy-section">
+            <h3>Our Philosophy</h3>
+            <p>
+                The film industry has traditionally been difficult to break into, with opportunities often dependent
+                on who you know rather than what you're capable of. We're changing that.
+            </p>
+            <p>
+                By creating real production opportunities and supporting new voices, we're building a more accessible,
+                diverse, and vibrant film community in Scotland. Every person who gets their first break with us is
+                proof that talent isn't rare—opportunities are.
+            </p>
+            <p>
+                Whether you dream of being a director, actor, cinematographer, or any other role in film production,
+                your journey starts with a simple step: getting in touch and showing up.
+            </p>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Ready to Start Your Journey?</h2>
+        <p>
+            If you want to work in film, have an idea for a screenplay, or simply want to learn more about
+            what we do, we'd love to hear from you.
+        </p>
+        <a href="mailto:info@seeitonscreen.com" class="cta-button">Get In Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 See it On Screen. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
