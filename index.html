@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <title>See It On Screen - See it off Productions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
     <style>
         :root {
             --bg: #0c0d10;
@@ -20,7 +23,7 @@
 
         body {
             margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: #000;
             color: var(--text);
         }
@@ -42,7 +45,6 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             font-size: 1.2rem;
-            /* larger logo text */
             font-weight: 600;
         }
 
@@ -51,7 +53,6 @@
             text-decoration: none;
             margin-left: 1.5rem;
             font-size: 1rem;
-            /* larger and more readable */
             letter-spacing: 0.15em;
             text-transform: uppercase;
             font-weight: 500;
@@ -85,54 +86,28 @@
         .hero-kicker {
             text-transform: uppercase;
             letter-spacing: 0.25em;
-            font-size: 1.3rem;
-            /* increased size */
+            font-size: 1.5rem;
             font-weight: 600;
-            /* optional: makes it stand out */
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.4rem;
         }
 
-
-        h1.hero-title {
-            font-size: clamp(3rem, 5vw, 4.3rem);
+        .hero-title {
+            font-size: clamp(3.5rem, 6vw, 5rem);
+            font-weight: 700;
             letter-spacing: 0.02em;
             text-transform: uppercase;
-            margin-bottom: 1.2rem;
-            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: #fff;
         }
 
         .hero-text {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.75);
-            max-width: 550px;
-            margin: 0 auto 2.2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            background: rgba(255, 255, 255, 1);
-            color: #000;
-            border: none;
-            padding: 0.65rem 1.55rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.7rem;
-            border-radius: 999px;
-            cursor: pointer;
-        }
-
-        .btn.secondary {
-            background: rgba(0, 0, 0, 0.4);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
         }
 
         .scroll-hint {
@@ -140,13 +115,124 @@
             bottom: 1.8rem;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        /* call to action section */
+        /* cinematic CTA / reel section */
+        .reel-section {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* animated background layer */
+        .reel-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)),
+                url("images/crew1-bg.jpg") center/cover no-repeat;
+            z-index: 0;
+            animation: reelMove 25s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        .reel-overlay {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .reel-card {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            max-width: 800px;
+            color: #fff;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .reel-card .section-kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .reel-card .section-title {
+            font-size: 2.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .reel-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .reel-card .btn {
+            background: var(--accent);
+            color: #000;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.9rem 2.2rem;
+            border: none;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .reel-card .btn:hover {
+            background: #d4ae5f;
+        }
+
+        @keyframes reelMove {
+            0% {
+                transform: scale(1) translateX(0);
+            }
+
+            100% {
+                transform: scale(1.08) translateX(-12px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* white CTA strip */
         .cta {
             background: #fff;
             color: #000;
@@ -165,7 +251,6 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #000;
             letter-spacing: 0.02em;
             text-transform: uppercase;
         }
@@ -194,7 +279,7 @@
             background: #333;
         }
 
-        /* section wrapper */
+        /* generic section wrapper (productions, about, etc.) */
         .section {
             max-width: var(--max);
             margin: 0 auto;
@@ -202,20 +287,40 @@
             background: #000;
         }
 
+        /* headings */
         .section-head {
-            margin-bottom: 1.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
         }
 
         .section-kicker {
             text-transform: uppercase;
-            letter-spacing: 0.25em;
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.3em;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.8rem;
         }
 
         .section-title {
-            font-size: 1.6rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+        }
+
+        .about-full {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+        }
+
+        .about-full p+p {
+            margin-top: 1.8rem;
         }
 
         /* shows grid */
@@ -267,34 +372,68 @@
             color: rgba(255, 255, 255, 0.35);
         }
 
-        /* about 2-col */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 2.5rem;
+        /* contact section */
+        .contact-section {
+            text-align: center;
+            background: #000;
         }
 
-        .panel {
-            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0));
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            border-radius: 1rem;
-            padding: 1.5rem 1.4rem 1.4rem;
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .credits-list {
-            display: grid;
-            gap: 1.2rem;
+        .contact-form .form-group {
+            width: 100%;
         }
 
-        .credit-item small {
-            display: block;
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s ease, background 0.2s ease;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-form .btn {
+            background: var(--accent);
+            color: #000;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 999px;
             text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.45);
-            margin-top: 0.25rem;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
+        .contact-form .btn:hover {
+            background: #7e6b41;
+        }
+
+        /* footer */
         footer {
             max-width: var(--max);
             margin: 0 auto;
@@ -308,20 +447,64 @@
             color: rgba(255, 255, 255, 0.45);
         }
 
+        /* mobile tweaks */
         @media (max-width: 800px) {
-            .two-col {
-                grid-template-columns: 1fr;
-            }
-
             nav {
                 display: none;
             }
 
-            h1.hero-title {
+            .hero-title {
                 font-size: 2.7rem;
             }
+
+            .hero-kicker {
+                font-size: 1.1rem;
+            }
+
+            .about-full {
+                font-size: 1.05rem;
+                text-align: left;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+        }
+
+        .reel-section {
+            min-height: 60vh;
+            /* Makes it prominent but smaller than hero */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('crew1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Optional: creates parallax effect */
+            position: relative;
+        }
+
+        .reel-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            /* Dark overlay for text readability */
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .reel-card {
+            max-width: 800px;
+            text-align: center;
         }
     </style>
+
+
 </head>
 
 <body>
@@ -341,24 +524,14 @@
             <div class="hero-kicker">Films By Anyone, For Everyone</div>
             <h1 class="hero-title">Turn your dreams into reels</h1>
             <p class="hero-text">
-                Replace this with your positioning: drama, premium series, features and international co-productions
-                with leading broadcasters and streamers.
+                We believe that there are talented people everywhere, and that people need opportunities to identify and
+                develop their
+                talents.
             </p>
         </div>
     </section>
 
-            <div class="hero-buttons">
-                <button class="btn"
-                    onclick="document.getElementById('productions').scrollIntoView({behavior:'smooth'});">
-                    View productions
-                </button>
-                <button class="btn secondary"
-                    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-                    Contact
-                </button>
-            </div>
-        </div>
-        <div class="scroll-hint">Scroll to explore</div>
+    <div class="scroll-hint">Scroll to explore</div>
     </section>
 
     <!-- call to action -->
@@ -417,53 +590,52 @@
         </div>
     </section>
 
-    <!-- about -->
-    <section id="about" class="section">
-        <div class="section-head">
-            <div class="section-kicker">About</div>
-            <h2 class="section-title">Creative. International. Producer-led.</h2>
-        </div>
-        <div class="two-col">
-            <div class="panel">
-                <p>
-                    Add your actual bio here — who founded the company, where you're based, and the type of returning or
-                    high-end drama you deliver.
-                    Mention partnerships with broadcasters/streamers and any awards/festival recognition.
-                </p>
-                <p>
-                    You can link to separate labels/divisions from here if you have them.
-                </p>
-            </div>
-            <div class="panel">
-                <h3 style="margin-top:0;">Selected credits</h3>
-                <div class="credits-list">
-                    <div class="credit-item">
-                        The Harbour (ITV)
-                        <small>6 x 60’ drama · 2025</small>
-                    </div>
-                    <div class="credit-item">
-                        Winterlight
-                        <small>Feature · 2024</small>
-                    </div>
-                    <div class="credit-item">
-                        The Archivists (Netflix)
-                        <small>Limited series · 2023</small>
-                    </div>
+    <<!-- call to action / film reel section -->
+        <section id="about" class="reel-section">
+            <div class="reel-overlay">
+                <div class="reel-card">
+                    <div class="section-kicker">Join the Story</div>
+                    <h2 class="section-title">Where Stories Begin</h2>
+                    <p>
+                        We believe that the best way to build a thriving film community is by making films together.
+                        We create real opportunities to work in film across Scotland and the UK, bringing together
+                        professionals and newcomers on every project.
+                        Whether you're experienced or just starting out, all you need to do is reach out, get involved,
+                        and
+                        show up ready to create.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <div>
-            <strong>Your Production Company</strong><br />
-            London / UK<br />
-            <a href="mailto:hello@example.com" style="color:inherit;">hello@example.com</a>
-        </div>
-        <div>
-            © 2025 Your Production Company
-        </div>
-    </footer>
+
+        <!-- contact -->
+        <section id="contact" class="section contact-section">
+            <div class="section-head">
+                <div class="section-kicker">Contact</div>
+                <h2 class="section-title">Get in Touch</h2>
+            </div>
+
+            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+
+        <footer id="contact">
+            <div>
+                <strong>See It On Screen</strong>
+                <div>© 2025 See It Off Productions Ltd</div>
+        </footer>
+
 
 </body>
 
