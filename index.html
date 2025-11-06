@@ -326,8 +326,17 @@
         /* shows grid */
         .shows-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 columns on desktop */
+            gap: 2rem;
+        }
+
+        /* Tablet and mobile: 1 column */
+        @media (max-width: 768px) {
+            .shows-grid {
+                grid-template-columns: 1fr;
+                /* 1 column on tablet/mobile */
+            }
         }
 
         .show-card {
