@@ -472,36 +472,6 @@
                 font-size: 0.8rem;
             }
         }
-
-        .reel-section {
-            min-height: 60vh;
-            /* Makes it prominent but smaller than hero */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: url('crew1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            /* Optional: creates parallax effect */
-            position: relative;
-        }
-
-        .reel-overlay {
-            background: rgba(0, 0, 0, 0.5);
-            /* Dark overlay for text readability */
-            width: 100%;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem 2rem;
-        }
-
-        .reel-card {
-            max-width: 800px;
-            text-align: center;
-        }
     </style>
 
 
@@ -591,50 +561,50 @@
     </section>
 
     <!-- call to action / film reel section -->
-        <section id="about" class="reel-section">
-            <div class="reel-overlay">
-                <div class="reel-card">
-                    <div class="section-kicker">Join the Story</div>
-                    <h2 class="section-title">Where Stories Begin</h2>
-                    <p>
-                        We believe that the best way to build a thriving film community is by making films together.
-                        We create real opportunities to work in film across Scotland and the UK, bringing together
-                        professionals and newcomers on every project.
-                        Whether you're experienced or just starting out, all you need to do is reach out, get involved,
-                        and
-                        show up ready to create.
-                    </p>
-                </div>
+    <section id="about" class="reel-section">
+        <div class="reel-overlay">
+            <div class="reel-card">
+                <div class="section-kicker">Join the Story</div>
+                <h2 class="section-title">Where Stories Begin</h2>
+                <p>
+                    We believe that the best way to build a thriving film community is by making films together.
+                    We create real opportunities to work in film across Scotland and the UK, bringing together
+                    professionals and newcomers on every project.
+                    Whether you're experienced or just starting out, all you need to do is reach out, get involved,
+                    and
+                    show up ready to create.
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
 
-        <!-- contact -->
-        <section id="contact" class="section contact-section">
-            <div class="section-head">
-                <div class="section-kicker">Contact</div>
-                <h2 class="section-title">Get in Touch</h2>
+    <!-- contact -->
+    <section id="contact" class="section contact-section">
+        <div class="section-head">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Get in Touch</h2>
+        </div>
+
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
             </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
 
-            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </section>
-
-        <footer id="contact">
-            <div>
-                <strong>See It On Screen</strong>
-                <div>© 2025 See It Off Productions Ltd</div>
-        </footer>
+    <footer id="contact">
+        <div>
+            <strong>See It On Screen</strong>
+            <div>© 2025 See It Off Productions Ltd</div>
+    </footer>
 
 
 </body>
