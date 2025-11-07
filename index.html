@@ -327,15 +327,15 @@
         .shows-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            /* 2 columns on desktop */
-            gap: 2rem;
+            gap: 1rem;
+            row-gap: 1rem;
+            /* Explicitly set row gap */
         }
 
         /* Tablet and mobile: 1 column */
         @media (max-width: 768px) {
             .shows-grid {
                 grid-template-columns: 1fr;
-                /* 1 column on tablet/mobile */
             }
         }
 
@@ -346,41 +346,51 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            min-height: 500px;
-            /* Doubled from 250px */
+            aspect-ratio: 1 / 1;
         }
 
         .show-thumb {
-            background: #222;
-            height: 280px;
-            /* Doubled from 140px */
+            flex: 1;
+            /* This makes the thumbnail take up all available space */
             background-size: cover;
             background-position: center;
+            min-height: 0;
+            /* Important for flex to work properly */
         }
 
         .show-body {
-            padding: 1.1rem 1rem 1.4rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
+            padding: 1.5rem;
+            flex-shrink: 0;
+            /* Prevents the text area from shrinking */
         }
 
         .show-meta {
             text-transform: uppercase;
-            font-size: 0.6rem;
+            font-size: 0.75rem;
+            /* Increased from 0.6rem */
             letter-spacing: 0.2em;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.7);
+            /* Lighter - was 0.5 */
         }
 
         .show-title {
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.4rem;
+            /* Increased from 1rem */
+            font-weight: 600;
+            /* Increased from 500 */
+            color: rgba(255, 255, 255, 0.95);
+            /* Added for better visibility */
         }
 
         .show-foot {
-            margin-top: auto;
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.35);
+            margin-top: 0.5rem;
+            /* Added spacing */
+            font-size: 0.85rem;
+            /* Increased from 0.65rem */
+            color: rgba(255, 255, 255, 0.65);
+            /* Lighter - was 0.35 */
+            line-height: 1.4;
+            /* Added for better readability */
         }
 
         /* contact section */
@@ -483,6 +493,21 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* Section divider */
+        .section-divider {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-divider hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+            margin: 4rem 0 1rem 0;
+            /* Changed from 4rem 0 to 4rem 0 2rem 0 */
+        }
     </style>
 
 
@@ -551,128 +576,136 @@
                 </div>
             </article>
             <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/show-2.jpg');"></div>
+                <div class="show-thumb" style="background-image:url('images/fire.png');"></div>
                 <div class="show-body">
-                    <div class="show-meta">Feature film</div>
-                    <div class="show-title">Winterlight</div>
-                    <div class="show-foot">2024</div>
+                    <div class="show-meta">Short film</div>
+                    <div class="show-title">Out of Town</div>
                 </div>
             </article>
             <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/show-3.jpg');"></div>
+                <div class="show-thumb" style="background-image:url('images/icemelts.png');"></div>
                 <div class="show-body">
-                    <div class="show-meta">Documentary · 3 x 45'</div>
-                    <div class="show-title">Women of the Isles</div>
-                    <div class="show-foot">BBC · 2024</div>
+                    <div class="show-meta">Short film</div>
+                    <div class="show-title">Ice Melts</div>
                 </div>
             </article>
             <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/show-4.jpg');"></div>
+                <div class="show-thumb" style="background-image:url('images/hero-bg.png');"></div>
                 <div class="show-body">
-                    <div class="show-meta">Drama · 8 x 45'</div>
-                    <div class="show-title">Signal Fire</div>
-                    <div class="show-foot">Channel 4 · 2023</div>
+                    <div class="show-meta">Short film</div>
+                    <div class="show-title">Earth Is Flat</div>
+
                 </div>
             </article>
         </div>
     </section>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <hr>
+    </div>
 
     <!-- projects in development -->
     <section id="development" class="section">
-        <div class="section-head">
-            <div class="section-kicker">PROJECTS</div>
-            <h2 class="section-title">In Development</h2>
-        </div>
-        <p class="about-full">
-            We're developing two feature films, a feature documentary, and a TV series, all
-            proudly made in the UK and driven by our commitment to compelling storytelling.
-            <br><br>
-            We're seeking collaborators and financiers to join us in shaping the next generation of Scottish and British
-            cinema.
-        </p>
-        <!-- Spacer -->
-        <div style="height: 3rem;"></div>
 
-        <div class="shows-grid">
-            <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/dev-1.jpg');"></div>
-                <div class="show-body">
-                    <div class="show-meta">Drama · 8 x 45'</div>
-                    <div class="show-title">Northern Lights</div>
-                    <div class="show-foot">In Development · 2026</div>
-                </div>
-            </article>
-            <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/dev-2.jpg');"></div>
-                <div class="show-body">
-                    <div class="show-meta">Feature Film</div>
-                    <div class="show-title">The Last Ferry</div>
-                    <div class="show-foot">Pre-Production · 2026</div>
-                </div>
-            </article>
-            <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/dev-3.jpg');"></div>
-                <div class="show-body">
-                    <div class="show-meta">Documentary · 4 x 60'</div>
-                    <div class="show-title">Highland Stories</div>
-                    <div class="show-foot">In Development · 2026</div>
-                </div>
-            </article>
-            <article class="show-card">
-                <div class="show-thumb" style="background-image:url('images/dev-4.jpg');"></div>
-                <div class="show-body">
-                    <div class="show-meta">Drama · 6 x 50'</div>
-                    <div class="show-title">Coastal Roads</div>
-                    <div class="show-foot">Pre-Production · 2026</div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- call to action / film reel section -->
-    <section id="about" class="reel-section">
-        <div class="reel-overlay">
-            <div class="reel-card">
-                <div class="section-kicker">Join the Story</div>
-                <h2 class="section-title">Where Ideas Become Film</h2>
-                <p>
-                    We believe that the best way to build a thriving film community is by making films together.
-                    We create real opportunities to work in film across Scotland and the UK, bringing together
-                    professionals and newcomers on every project.
-                    Whether you're experienced or just starting out, all you need to do is reach out, get involved,
-                    and
-                    show up ready to create.
-                </p>
+        <!-- projects in development -->
+        <section id="development" class="section">
+            <div class="section-head">
+                <div class="section-kicker">PROJECTS</div>
+                <h2 class="section-title">In Development</h2>
             </div>
-        </div>
-    </section>
+            <p class="about-full">
+                We're developing two feature films, a feature documentary, and a TV series, all
+                proudly made in the UK and driven by our commitment to compelling storytelling.
+                <br><br>
+                We're seeking collaborators and financiers to join us in shaping the next generation of Scottish and
+                British
+                cinema.
+            </p>
+            <!-- Spacer -->
+            <div style="height: 3rem;"></div>
 
-    <!-- contact -->
-    <section id="contact" class="section contact-section">
-        <div class="section-head">
-            <div class="section-kicker">Contact</div>
-            <h2 class="section-title">Get in Touch</h2>
-        </div>
+            <div class="shows-grid">
+                <article class="show-card">
+                    <div class="show-thumb" style="background-image:url('images/lochstock.jpg');"></div>
+                    <div class="show-body">
+                        <div class="show-meta">TV Series</div>
+                        <div class="show-title">Loch Away</div>
+                        <div class="show-foot">Young Adult Adventure/Horror. Seeking Development Finance</div>
+                    </div>
+                </article>
+                <article class="show-card">
+                    <div class="show-thumb" style="background-image:url('images/lochstock.jpg');"></div>
+                    <div class="show-body">
+                        <div class="show-meta">Feature Film</div>
+                        <div class="show-title">Lucky Men</div>
+                        <div class="show-foot">Feature Film, pulpy crime thriller. In pre-production</div>
+                    </div>
+                </article>
+                <article class="show-card">
+                    <div class="show-thumb" style="background-image:url('images/lochstock.jpg');"></div>
+                    <div class="show-body">
+                        <div class="show-meta">Feature Film</div>
+                        <div class="show-title">Tell Me What You Did</div>
+                        <div class="show-foot">Psychological Horror/Thriller. Seeking Development Finance</div>
+                    </div>
+                </article>
+                <article class="show-card">
+                    <div class="show-thumb" style="background-image:url('images/lochstock.jpg');"></div>
+                    <div class="show-body">
+                        <div class="show-meta">Feature Documentary</div>
+                        <div class="show-title">XXXXXX</div>
+                        <div class="show-foot">XXXXXX</div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name" required>
+        <!-- call to action / film reel section -->
+        <section id="about" class="reel-section">
+            <div class="reel-overlay">
+                <div class="reel-card">
+                    <div class="section-kicker">Join the Story</div>
+                    <h2 class="section-title">Where Ideas Become Film</h2>
+                    <p>
+                        We believe that the best way to build a thriving film community is by making films together.
+                        We create real opportunities to work in film across Scotland and the UK, bringing together
+                        professionals and newcomers on every project.
+                        Whether you're experienced or just starting out, all you need to do is reach out, get involved,
+                        and
+                        show up ready to create.
+                    </p>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <div>
-            <strong>See It On Screen</strong>
-            <div>© 2025 See It Off Productions Ltd</div>
-    </footer>
+        <!-- contact -->
+        <section id="contact" class="section contact-section">
+            <div class="section-head">
+                <div class="section-kicker">Contact</div>
+                <h2 class="section-title">Get in Touch</h2>
+            </div>
+
+            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+
+        <footer id="contact">
+            <div>
+                <strong>See It On Screen</strong>
+                <div>© 2025 See It Off Productions Ltd</div>
+        </footer>
 
 </body>
 
