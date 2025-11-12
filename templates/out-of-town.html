@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Out of Town - See it off Productions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0c0d10;
+            --text: #fff;
+            --muted: rgba(255, 255, 255, 0.65);
+            --max: 1180px;
+            --accent: #e4c16f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #000;
+            color: var(--text);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .logo {
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .logo a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        .movie-hero {
+            position: relative;
+            min-height: 75vh;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 1) 100%),
+                url("../images/fire.png") center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .movie-hero-content {
+            max-width: var(--max);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link::before {
+            content: "←";
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .movie-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.1;
+        }
+
+        .movie-meta {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.05em;
+        }
+
+        .movie-content {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .video-section {
+            position: relative;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .description-section {
+            position: sticky;
+            top: 6rem;
+        }
+
+        .description-section h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0 1rem 0;
+            font-weight: 500;
+        }
+
+        .description-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+        }
+
+        .description-text p+p {
+            margin-top: 1.5rem;
+        }
+
+        .movie-details {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .movie-details strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .gallery-section {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        @media (max-width: 900px) {
+            .movie-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .description-section {
+                position: static;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+            }
+
+            .movie-hero {
+                min-height: 60vh;
+                padding-bottom: 2rem;
+            }
+
+            .movie-title {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="../index.html">SEE IT ON SCREEN</a></div>
+        <nav>
+            <a href="../index.html#productions">Productions</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="movie-hero">
+        <div class="movie-hero-content">
+            <a href="../index.html#productions" class="back-link">Back to Productions</a>
+            <h1 class="movie-title">Out of Town</h1>
+            <div class="movie-meta">Short Film • 2022</div>
+        </div>
+    </section>
+
+    <section class="movie-content">
+        <div class="video-section">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/c7UBNMyrOPs" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Synopsis</h2>
+            <div class="description-text">
+                <p>A gripping short film that explores themes of isolation, survival, and the unpredictable nature of
+                    human connection. When circumstances force unexpected encounters, the boundaries between stranger
+                    and ally blur in surprising ways.</p>
+                <p>Shot with striking visual imagery and atmospheric tension, Out of Town delivers a visceral
+                    experience that lingers long after the credits roll.</p>
+            </div>
+
+            <div class="movie-details">
+                <strong>Format:</strong> Short Film<br>
+                <strong>Year:</strong> 2023<br>
+                <strong>Genre:</strong> Drama/Thriller<br>
+                <strong>Production:</strong> See It Off Productions
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('../images/beach.png');"></div>
+            <div class="gallery-item" style="background-image: url('../images/fire.png');"></div>
+            <div class="gallery-item" style="background-image: url('../images/jump.png');"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <strong>See It On Screen</strong>
+            <div>© 2025 See It Off Productions Ltd</div>
+        </div>
+    </footer>
+</body>
+
+</html>
