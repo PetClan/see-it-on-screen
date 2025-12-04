@@ -332,6 +332,18 @@
             /* Explicitly set row gap */
         }
 
+        /* Center last card if odd number */
+        .shows-grid>.show-card:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            width: calc(50% - 0.5rem);
+            margin: 0 auto;
+        }
+
+        a.show-card {
+            color: inherit;
+            text-decoration: none;
+        }
+
         /* Tablet and mobile: 1 column */
         @media (max-width: 768px) {
             .shows-grid {
@@ -615,10 +627,16 @@
                     <div class="show-title">Earth Is Flat</div>
                 </div>
             </a>
-            </article>
+            <a href="templates/room-temperature.html" class="show-card">
+                <div class="show-thumb" style="background-image:url('images/room_temperature_1.png');"></div>
+                <div class="show-body">
+                    <div class="show-meta">Stop-Motion Adventure</div>
+                    <div class="show-title">Room Temperature</div>
+                </div>
+            </a>
         </div>
     </section>
-    </section>
+
 
     <!-- Divider -->
     <div class="section-divider">
