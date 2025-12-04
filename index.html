@@ -468,6 +468,22 @@
             color: rgba(255, 255, 255, 0.45);
         }
 
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
         /* mobile tweaks */
         @media (max-width: 800px) {
             nav {
@@ -704,10 +720,16 @@
             </form>
         </section>
 
-        <footer id="contact">
+        <footer>
             <div>
                 <strong>See It On Screen</strong>
                 <div>© 2025 See It Off Productions Ltd</div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#contact">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="legal.html">Legal & Information</a>
+            </div>
         </footer>
 
 </body>
