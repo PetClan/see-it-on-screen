@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO Meta Tags -->
+    <title>Feature Documentary - In Development | See It Off Productions UK</title>
+    <meta name="description"
+        content="Feature Documentary in development from See It Off Productions. UK independent film production company creating compelling documentaries and visual stories." />
+    <meta name="keywords"
+        content="UK film production, British documentary, independent filmmaking, UK production company, See It Off Productions, feature documentary" />
+    <meta name="author" content="See It Off Productions Ltd" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yourdomain.com/productions/feature-documentary.html" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Feature Documentary - In Development | See It Off Productions" />
+    <meta property="og:description" content="Feature Documentary in development from See It Off Productions." />
+    <meta property="og:type" content="video.movie" />
+    <meta property="og:url" content="https://yourdomain.com/productions/feature-documentary.html" />
+    <meta property="og:image" content="https://yourdomain.com/images/lochstock.jpg" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="See It Off Productions" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Feature Documentary - In Development | See It Off Productions" />
+    <meta name="twitter:description" content="Feature Documentary in development from See It Off Productions." />
+    <meta name="twitter:image" content="https://yourdomain.com/images/lochstock.jpg" />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "name": "Feature Documentary",
+      "description": "Feature Documentary in development from See It Off Productions.",
+      "genre": "Documentary",
+      "productionCompany": {
+        "@type": "Organization",
+        "name": "See It Off Productions Ltd",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB"
+        }
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0c0d10;
+            --text: #fff;
+            --muted: rgba(255, 255, 255, 0.65);
+            --max: 1180px;
+            --accent: #e4c16f;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #000;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+            backdrop-filter: blur(10px);
+            height: var(--header-height);
+        }
+
+        .logo {
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .logo a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .movie-hero {
+            position: relative;
+            min-height: clamp(500px, 75vh, 800px);
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 1) 100%),
+                url("../images/holding-image.jpeg") center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 clamp(1rem, 4vw, 1.5rem) clamp(2rem, 6vw, 4rem);
+            margin-top: var(--header-height);
+        }
+
+        .movie-hero-content {
+            max-width: var(--max);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            transition: all 0.2s ease;
+            padding: 0.5rem 0;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        .back-link::before {
+            content: "←";
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .movie-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.1;
+        }
+
+        .movie-meta {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.05em;
+        }
+
+        .movie-content {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 1.5rem);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+        }
+
+        @media (min-width: 768px) {
+            .movie-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .video-section {
+            position: relative;
+            width: 100%;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .description-section {
+            position: relative;
+        }
+
+        @media (min-width: 900px) {
+            .description-section {
+                position: sticky;
+                top: calc(var(--header-height) + 2rem);
+            }
+        }
+
+        .description-section h2 {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0 1rem 0;
+            font-weight: 500;
+        }
+
+        .description-text {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2rem;
+        }
+
+        .description-text p+p {
+            margin-top: 1.5rem;
+        }
+
+        .coming-soon-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        .movie-details {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .movie-details strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .gallery-section {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 1.5rem) clamp(3rem, 6vw, 4rem);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(0.75rem, 2vw, 1rem);
+        }
+
+        @media (min-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery-item {
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .gallery-placeholder {
+            aspect-ratio: 16/9;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        footer {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: clamp(2rem, 4vw, 2.8rem) clamp(1rem, 4vw, 1.5rem) clamp(2.5rem, 5vw, 3.3rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+            }
+
+            .movie-hero {
+                min-height: 60vh;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            header {
+                padding: 1rem 2rem;
+            }
+
+            .movie-hero {
+                min-height: 70vh;
+            }
+        }
+
+        @media print {
+
+            header,
+            nav,
+            .back-link,
+            .video-wrapper {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="../index.html" aria-label="See It On Screen Home">SEE IT ON SCREEN</a></div>
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="../index.html#productions">Productions</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="movie-hero" role="banner">
+            <div class="movie-hero-content">
+                <a href="../index.html#development" class="back-link" aria-label="Back to Projects">Back to
+                    Projects</a>
+                <h1 class="movie-title">Feature Documentary</h1>
+                <div class="movie-meta">Feature Documentary • In Development</div>
+            </div>
+        </section>
+
+        <section class="movie-content">
+            <div class="video-section">
+                <div class="video-wrapper">
+                    <div class="video-placeholder">Trailer Coming Soon</div>
+                </div>
+            </div>
+
+            <div class="description-section">
+                <h2>Synopsis</h2>
+                <div class="description-text">
+                    <p class="coming-soon-text">Details coming soon.</p>
+                    <p class="coming-soon-text">We're currently developing an exciting feature documentary project.
+                        Check back for updates.</p>
+                </div>
+
+                <div class="movie-details">
+                    <strong>Format:</strong> Feature Documentary<br>
+                    <strong>Genre:</strong> Documentary<br>
+                    <strong>Status:</strong> In Development<br>
+                    <strong>Production:</strong> See It Off Productions
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section" aria-label="Film Gallery">
+            <div class="gallery-grid">
+                <div class="gallery-placeholder">Image Coming Soon</div>
+                <div class="gallery-placeholder">Image Coming Soon</div>
+                <div class="gallery-placeholder">Image Coming Soon</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <strong>See It On Screen</strong>
+            <div>© 2025 See It Off Productions Ltd</div>
+        </div>
+        <div class="footer-links">
+            <a href="../index.html#contact">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+            <a href="../legal.html">Legal & Information</a>
+        </div>
+    </footer>
+</body>
+
+</html>
